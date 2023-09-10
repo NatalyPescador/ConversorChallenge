@@ -54,7 +54,12 @@ public class Conversor extends JFrame implements ActionListener, ItemListener {
     //Creando función principal de conversión de moneda
     public static void conversionMoneda(double tasa) {
         //Solicitar el valor al usuario
-        int cantidad = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite el valor que desea convertir"));
+        int cantidad = 0;
+        try {
+            cantidad = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite el valor que desea convertir"));
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Recuerde que debe ingresar una opción valida, es decir una opción númerica");
+        }
 
         //Realizar la conversión
         double resultado = cantidad * tasa;
@@ -118,9 +123,10 @@ public class Conversor extends JFrame implements ActionListener, ItemListener {
                     case "De Libras a Pesos" -> conversionMoneda(5009.27);
                     case "De Yen a Pesos" -> conversionMoneda(27.19);
                     case "De Won Coreano a Pesos" -> conversionMoneda(3.01);
+                    default -> JOptionPane.showMessageDialog(null, "Por favor, seleccione una opción válida");
                 }
 
-            } else {
+            } else if (seleccion.equals("Conversor de temperatura")) {
               //Opciones de conversion de temperatura
                 String[] opcionesTemperatura = {
                         "Grados Celcius a Grados Fahrenheit",
@@ -132,7 +138,7 @@ public class Conversor extends JFrame implements ActionListener, ItemListener {
 
                 //Ventana emergente con las opciones de conversion de monedas
                 String seleccionTemperatura = (String) JOptionPane.showInputDialog(null,
-                        "Elija la moneda que desea convertir",
+                        "Elija la temperatura que desea convertir",
                         "Conversión de temperatura",
                         JOptionPane.PLAIN_MESSAGE,
                         null,
@@ -140,31 +146,62 @@ public class Conversor extends JFrame implements ActionListener, ItemListener {
                         opcionesTemperatura[0]);
 
                 switch (seleccionTemperatura) {
-                    case "Grados Celsius a Grados Fahrenheit" -> {
-                        double celsiusF = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite el valor que desea convertir"));
+                    case "Grados Celcius a Grados Fahrenheit" -> {
+                        double celsiusF = 0;
+                        try {
+                            celsiusF = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite el valor que desea convertir"));
+                        } catch (NumberFormatException ex) {
+                            JOptionPane.showMessageDialog(null, "Recuerde que debe ingresar una opción valida, es decir una opción númerica");
+                            break;
+                        }
                         double celsiusAFahrenheit = (celsiusF * 9 / 5) + 32;
                         JOptionPane.showMessageDialog(null, celsiusF + " Grados Celsius son " + celsiusAFahrenheit + " Grados Fahrenheit");
                     }
-                    case "Grados Celsius a Grados Kelvin" -> {
-                        double celsiusK = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite el valor que desea convertir"));
+                    case "Grados Celcius a Grados Kelvin" -> {
+                        double celsiusK = 0;
+                        try {
+                            celsiusK = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite el valor que desea convertir"));
+                        } catch (NumberFormatException ex) {
+                            JOptionPane.showMessageDialog(null, "Recuerde que debe ingresar una opción valida, es decir una opción númerica");
+                            break;
+                        }
                         double celsiusAKelvin = celsiusK + 273.15;
                         JOptionPane.showMessageDialog(null, celsiusK + " Grados Celsius son " + celsiusAKelvin + " Grados Kelvin");
                     }
-                    case "Grados Fahrenheit a Grados Celsius" -> {
-                        double fahrenheitC = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite el valor que desea convertir"));
+                    case "Grados Fahrenheit a Grados Celcius" -> {
+                        double fahrenheitC = 0;
+                        try {
+                            fahrenheitC = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite el valor que desea convertir"));
+                        } catch (NumberFormatException ex) {
+                            JOptionPane.showMessageDialog(null, "Recuerde que debe ingresar una opción valida, es decir una opción númerica");
+                            break;
+                        }
                         double fahrenheitACelsius = (fahrenheitC - 32) * 5 / 9;
                         JOptionPane.showMessageDialog(null, fahrenheitC + " Grados Fahrenheit son " + fahrenheitACelsius + " Grados Celsius");
                     }
-                    case "Grados Kelvin a Grados Celsius" -> {
-                        double kelvinC = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite el valor que desea convertir"));
+                    case "Grados Kelvin a Grados Celcius" -> {
+                        double kelvinC = 0;
+                        try {
+                            kelvinC = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite el valor que desea convertir"));
+                        } catch (NumberFormatException ex) {
+                            JOptionPane.showMessageDialog(null, "Recuerde que debe ingresar una opción valida, es decir una opción númerica");
+                            break;
+                        }
                         double kelvinACelsius = kelvinC - 273.15;
                         JOptionPane.showMessageDialog(null, kelvinC + " Grados Kelvin son " + kelvinACelsius + " Grados Celsius");
                     }
                     case "Grados Kelvin a Grados Fahrenheit" -> {
-                        double kelvinF = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite el valor que desea convertir"));
+                        double kelvinF = 0;
+                        try {
+                            kelvinF = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite el valor que desea convertir"));
+                        } catch (NumberFormatException ex) {
+                            JOptionPane.showMessageDialog(null, "Recuerde que debe ingresar una opción valida, es decir una opción númerica");
+                            break;
+                        }
                         double kelvinAFahrenheit = (kelvinF - 273.15) * 9 / 5 + 32;
                         JOptionPane.showMessageDialog(null, kelvinF + " Grados Kelvin son " + kelvinAFahrenheit + " Grados Fahrenheit");
                     }
+                    default -> JOptionPane.showMessageDialog(null, "Por favor, seleccione una opción válida");
                 }
             }
         } else if (e.getSource() == botonCancelar) {
