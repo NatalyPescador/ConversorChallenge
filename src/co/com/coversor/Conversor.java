@@ -126,6 +126,15 @@ public class Conversor extends JFrame implements ActionListener, ItemListener {
                     default -> JOptionPane.showMessageDialog(null, "Por favor, seleccione una opción válida");
                 }
 
+                //Validar si el usuario desea realizar una nueva conversión
+                int confirmacion = JOptionPane.showConfirmDialog(null, "¿Desea continuar?", "Confirmación", JOptionPane.YES_NO_CANCEL_OPTION);
+
+                switch (confirmacion) {
+                    case JOptionPane.NO_OPTION, JOptionPane.CANCEL_OPTION, JOptionPane.CLOSED_OPTION -> {
+                        JOptionPane.showMessageDialog(null, "Programa finalizado");
+                        System.exit(0);
+                    }
+                }
             } else if (seleccion.equals("Conversor de temperatura")) {
               //Opciones de conversion de temperatura
                 String[] opcionesTemperatura = {
@@ -203,7 +212,17 @@ public class Conversor extends JFrame implements ActionListener, ItemListener {
                     }
                     default -> JOptionPane.showMessageDialog(null, "Por favor, seleccione una opción válida");
                 }
+                //Validar si el usuario desea realizar una nueva conversión
+                int confirmacionContinuar = JOptionPane.showConfirmDialog(null,"¿Desea continuar?","Confirmación", JOptionPane.YES_NO_CANCEL_OPTION);
+
+                switch (confirmacionContinuar) {
+                    case JOptionPane.NO_OPTION, JOptionPane.CANCEL_OPTION,JOptionPane.CLOSED_OPTION -> {
+                        JOptionPane.showMessageDialog(null, "Programa finalizado");
+                        System.exit(0);
+                    }
+                }
             }
+
         } else if (e.getSource() == botonCancelar) {
             JOptionPane.showMessageDialog(null, "Cancelando operación");
             System.exit(0);
