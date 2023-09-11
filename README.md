@@ -63,7 +63,9 @@ En nuestra clase Main simplemente instanciamos nuestra clase principal y configu
 ![image](https://github.com/NatalyPescador/ConversorChallenge/assets/132100591/cc7ff833-8e8f-4dc5-af6a-553c2e0021be)
 
 
-## Autora
+## Desarrollado por:
+
+[<img src="https://avatars.githubusercontent.com/u/132100591?v=4" width=115><br><sub>Nataly Guzman Pescador</sub>](https://github.com/NatalyPescador) 
 
 
 
